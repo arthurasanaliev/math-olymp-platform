@@ -1,6 +1,7 @@
 package main
 
 import (
+	"github.com/arthurasanaliev/math-olymp-platform/pkg/handlers"
 	"github.com/go-chi/chi/v5"
 	"github.com/go-chi/chi/v5/middleware"
 	"net/http"
@@ -10,11 +11,13 @@ import (
 func routes() http.Handler {
 	mux := chi.NewRouter()
 
-	// middleware
 	mux.Use(middleware.Recoverer)
-	mux.Use(noSurf)
+	// mux.Use(noSurf)
 
-	// mux.Get("/", handlers.Repo.Home)
+	mux.Get("/", handlers.Repo.Home)
+	mux.Get("/login", handlers.Repo.Login)
+
+	mux.Post("/login", handlers.Repo.Login)
 
 	return mux
 }
