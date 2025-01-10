@@ -1,8 +1,12 @@
-module math-olymp-platform
+module github.com/arthurasanaliev/math-olymp-platform
 
 go 1.20
 
-require github.com/jackc/pgx/v4 v4.18.3
+require (
+	github.com/go-chi/chi/v5 v5.2.0
+	github.com/jackc/pgx/v4 v4.18.3
+	github.com/justinas/nosurf v1.1.1
+)
 
 require (
 	github.com/jackc/chunkreader/v2 v2.0.1 // indirect

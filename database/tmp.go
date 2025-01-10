@@ -93,7 +93,7 @@ func getUsers(conn *pgx.Conn) error {
 }
 
 // main is a driver function
-func main() {
+func con() {
 	conn, err := connectToDB()
 	if err != nil {
 		log.Fatal(err)
