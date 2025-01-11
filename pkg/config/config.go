@@ -1,9 +1,9 @@
 package config
 
-import "github.com/jackc/pgx/v4"
+import "github.com/arthurasanaliev/math-olymp-platform/pkg/db"
 
 // AppConfig holds app configurations
 type AppConfig struct {
 	InProduction bool
-	DB           *pgx.Conn
+	DB           *db.DB
 }

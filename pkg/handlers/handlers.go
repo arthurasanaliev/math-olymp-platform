@@ -50,7 +50,7 @@ func (m *Repository) Login(w http.ResponseWriter, r *http.Request) {
 		username := r.FormValue("username")
 		password := r.FormValue("password")
 
-		if username == "admin" && password == "0000" {
+		if isValidUser {
 			http.Redirect(w, r, "/", http.StatusSeeOther)
 		} else {
 			err := tmpl.ExecuteTemplate(w, "login.html", map[string]string{

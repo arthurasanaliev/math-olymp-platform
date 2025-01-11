@@ -1,8 +1,8 @@
 package main
 
 import (
-	"context"
 	"github.com/arthurasanaliev/math-olymp-platform/pkg/config"
+	"github.com/arthurasanaliev/math-olymp-platform/pkg/db"
 	"github.com/arthurasanaliev/math-olymp-platform/pkg/handlers"
 	"log"
 	"net/http"
@@ -14,15 +14,15 @@ var app config.AppConfig
 
 // main is the entry point of the program
 func main() {
-	conn, err := connectToDB()
+	database, err := db.NewDB()
 	if err != nil {
-		log.Fatal(err)
+		log.Fatalf("Failed to connect to the database: %v", err)
 	}
-	defer conn.Close(context.Background())
+	defer database.Close()
 
 	app = config.AppConfig{
 		InProduction: false,
-		DB:           conn,
+		DB:           database,
 	}
 
 	repo := handlers.NewRepo(&app)
