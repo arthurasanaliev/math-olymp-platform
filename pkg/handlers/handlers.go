@@ -30,10 +30,10 @@ func SetRepo(r *Repository) {
 
 // Home is the home page handler function
 func (m *Repository) Home(w http.ResponseWriter, r *http.Request) {
-    err := tmpl.ExecuteTemplate(w, "home.html", nil)
-    if err != nil {
-        http.Error(w, "Unable to load the home page", http.StatusInternalServerError)
-    }
+	err := tmpl.ExecuteTemplate(w, "home.html", nil)
+	if err != nil {
+		http.Error(w, "Unable to load the home page", http.StatusInternalServerError)
+	}
 }
 
 // Login is the login page handler function
