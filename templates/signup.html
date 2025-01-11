@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Login</title>
+        <title>Sign Up</title>
         <style>
         body {
             font-family: Arial, sans-serif;
@@ -61,8 +61,8 @@
     </head>
     <body>
         <div class="container">
-            <h1>Login</h1>
-            <form method="POST" action="/login">
+            <h1>Sign Up</h1>
+            <form method="POST" action="/signup">
                 <div class="form-group">
                     <label for="username">Username</label>
                     <input type="text" id="username" name="username" required>
@@ -71,7 +71,7 @@
                     <label for="password">Password</label>
                     <input type="password" id="password" name="password" required>
                 </div>
-                <button type="submit" class="btn">Login</button>
+                <button type="submit" class="btn">Sign Up</button>
                 {{if .Error}}
                 <div class="error">{{.Error}}</div>
                 {{end}}
