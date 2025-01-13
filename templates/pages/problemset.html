@@ -1,11 +1,31 @@
 {{define "title"}}Problemset - Math Olympiad Platform{{end}}
+
 {{define "content"}}
 <h2>Problem Set</h2>
 <div class="problem-set">
+    <style>
+        .easy {
+            color: green;
+            font-weight: bold;
+        }
+        .medium {
+            color: #D4A200;
+            font-weight: bold;
+        }
+        .hard {
+            color: red;
+            font-weight: bold;
+        }
+    </style>
+    
     {{range .}}
     <div class="problem">
         <h3>{{.Title}}</h3>
-        <p><strong>Difficulty:</strong> {{.Difficulty}}</p>
+        <p><strong>Difficulty:</strong>
+            <span class="{{if eq .Difficulty "Easy"}}easy{{else if eq .Difficulty "Medium"}}medium{{else}}hard{{end}}">
+                {{.Difficulty}}
+            </span>
+        </p>
         <p><strong>Tags:</strong> {{.Tags}}</p>
         <p><strong>Statement:</strong> {{.Statement}}</p>
     </div>

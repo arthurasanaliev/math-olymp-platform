@@ -8,4 +8,5 @@ type Problem struct {
 	Tags       string `json:"tags"`
 	Statement  string `json:"statement"`
 	Tutorial   string `json:"tutorial"`
+	Answer     int    `json:"answer"`
 }
