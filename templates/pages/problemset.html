@@ -1,0 +1,15 @@
+{{define "title"}}Problemset - Math Olympiad Platform{{end}}
+{{define "content"}}
+<h2>Problem Set</h2>
+<div class="problem-set">
+    {{range .}}
+    <div class="problem">
+        <h3>{{.Title}}</h3>
+        <p><strong>Difficulty:</strong> {{.Difficulty}}</p>
+        <p><strong>Tags:</strong> {{.Tags}}</p>
+        <p><strong>Statement:</strong> {{.Statement}}</p>
+    </div>
+    <hr>
+    {{end}}
+</div>
+{{end}}
