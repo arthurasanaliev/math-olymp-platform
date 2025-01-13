@@ -18,9 +18,11 @@ func routes() http.Handler {
 	mux.Get("/login", handlers.Repo.Login)
 	mux.Get("/signup", handlers.Repo.Signup)
 	mux.Get("/problems", handlers.Repo.Problems)
+	mux.Get("/problems/{id}", handlers.Repo.Problem)
 
 	mux.Post("/login", handlers.Repo.Login)
 	mux.Post("/signup", handlers.Repo.Signup)
+	mux.Post("/problems/{id}", handlers.Repo.Problem)
 
 	return mux
 }

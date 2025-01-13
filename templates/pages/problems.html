@@ -3,21 +3,6 @@
 {{define "content"}}
 <h2>Problems</h2>
 <div class="problems">
-    <style>
-        .easy {
-            color: green;
-            font-weight: bold;
-        }
-        .medium {
-            color: #D4A200;
-            font-weight: bold;
-        }
-        .hard {
-            color: red;
-            font-weight: bold;
-        }
-    </style>
-    
     {{range .}}
     <div class="problem">
         <h3>{{.Title}}</h3>
