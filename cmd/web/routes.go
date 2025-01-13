@@ -17,7 +17,7 @@ func routes() http.Handler {
 	mux.Get("/", handlers.Repo.Home)
 	mux.Get("/login", handlers.Repo.Login)
 	mux.Get("/signup", handlers.Repo.Signup)
-	mux.Get("/problemset", handlers.Repo.Problemset)
+	mux.Get("/problems", handlers.Repo.Problems)
 
 	mux.Post("/login", handlers.Repo.Login)
 	mux.Post("/signup", handlers.Repo.Signup)
