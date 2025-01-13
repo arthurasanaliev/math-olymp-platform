@@ -1,6 +1,9 @@
 package handlers
 
-import "net/http"
+import (
+	"github.com/arthurasanaliev/math-olymp-platform/pkg/render"
+	"net/http"
+)
 
 // Problemset is the problemset page handler
 func (m *Repository) Problemset(w http.ResponseWriter, r *http.Request) {
@@ -10,9 +13,5 @@ func (m *Repository) Problemset(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	err = tmpl.ExecuteTemplate(w, "problemset.html", problems)
-	if err != nil {
-		http.Error(w, "Unable to load the problemset page", http.StatusInternalServerError)
-		return
-	}
+	render.RenderTemplate(w, "problemset.html", problems)
 }

@@ -1,14 +1,17 @@
 package handlers
 
-import "net/http"
+import (
+	"github.com/arthurasanaliev/math-olymp-platform/pkg/render"
+	"net/http"
+)
 
 // Login is the login page handler
 func (m *Repository) Login(w http.ResponseWriter, r *http.Request) {
 	if r.Method == http.MethodGet {
-		err := tmpl.ExecuteTemplate(w, "login.html", nil)
-		if err != nil {
-			http.Error(w, "Unable to load the login form", http.StatusInternalServerError)
+		data := map[string]string{
+			"Title": "Login",
 		}
+		render.RenderTemplate(w, "login.html", data)
 		return
 	}
 
@@ -34,12 +37,10 @@ func (m *Repository) Login(w http.ResponseWriter, r *http.Request) {
 		if isValidUser && isValidPass {
 			http.Redirect(w, r, "/", http.StatusSeeOther)
 		} else {
-			err := tmpl.ExecuteTemplate(w, "login.html", map[string]string{
+			data := map[string]string{
 				"Error": "Invalid username or password",
-			})
-			if err != nil {
-				http.Error(w, "Unable to load the login form", http.StatusInternalServerError)
 			}
+			render.RenderTemplate(w, "login.html", data)
 		}
 		return
 	}

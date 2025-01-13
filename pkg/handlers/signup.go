@@ -1,14 +1,17 @@
 package handlers
 
-import "net/http"
+import (
+	"github.com/arthurasanaliev/math-olymp-platform/pkg/render"
+	"net/http"
+)
 
 // Signup is the signup page handler
 func (m *Repository) Signup(w http.ResponseWriter, r *http.Request) {
 	if r.Method == http.MethodGet {
-		err := tmpl.ExecuteTemplate(w, "signup.html", nil)
-		if err != nil {
-			http.Error(w, "Unable to load the signup form", http.StatusInternalServerError)
+		data := map[string]string{
+			"Title": "Sign Up",
 		}
+		render.RenderTemplate(w, "signup.html", data)
 		return
 	}
 
@@ -23,12 +26,10 @@ func (m *Repository) Signup(w http.ResponseWriter, r *http.Request) {
 		}
 
 		if isValidUser {
-			err := tmpl.ExecuteTemplate(w, "signup.html", map[string]string{
+			data := map[string]string{
 				"Error": "This username is already taken",
-			})
-			if err != nil {
-				http.Error(w, "Unable to load the signup form", http.StatusInternalServerError)
 			}
+			render.RenderTemplate(w, "signup.html", data)
 		} else {
 			err := m.app.DB.InsertUser(username, password)
 			if err != nil {
