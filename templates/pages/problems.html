@@ -5,7 +5,7 @@
 <div class="problems">
     {{range .}}
     <div class="problem">
-        <h3>{{.Title}}</h3>
+        <h3><a href="/problems/{{.ID}}">{{.Title}}</a></h3>
         <p><strong>Difficulty:</strong>
             <span class="{{if eq .Difficulty "Easy"}}easy{{else if eq .Difficulty "Medium"}}medium{{else}}hard{{end}}">
                 {{.Difficulty}}
