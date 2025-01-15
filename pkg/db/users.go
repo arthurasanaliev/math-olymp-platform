@@ -2,6 +2,7 @@ package db
 
 import (
 	"context"
+    "golang.org/x/crypto/bcrypt"
 	"fmt"
 )
 
@@ -27,18 +28,19 @@ func (db *DB) CheckUserPassword(username, password string) (bool, error) {
 	if err != nil {
 		return false, fmt.Errorf("database query failed: %v", err)
 	}
-	if storedPassword != password {
-		return false, nil
-	}
+    err = bcrypt.CompareHashAndPassword([]byte(storedPassword), []byte(password))
+    if err != nil {
+        return false, nil
+    }
 
 	return true, nil
 }
 
 // InsertUser inserts a new user into the database
-func (db *DB) InsertUser(username, password string) error {
+func (db *DB) InsertUser(username, hashedPassword string) error {
 	query := `INSERT INTO users (username, password) VALUES ($1, $2)`
 
-	_, err := db.Conn.Exec(context.Background(), query, username, password)
+	_, err := db.Conn.Exec(context.Background(), query, username, hashedPassword)
 	if err != nil {
 		return fmt.Errorf("unable to insert user: %v", err)
 	}

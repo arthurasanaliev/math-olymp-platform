@@ -2,6 +2,7 @@ package handlers
 
 import (
 	"github.com/arthurasanaliev/math-olymp-platform/pkg/render"
+	"golang.org/x/crypto/bcrypt"
 	"net/http"
 )
 
@@ -31,7 +32,13 @@ func (m *Repository) Signup(w http.ResponseWriter, r *http.Request) {
 			}
 			render.RenderTemplate(w, "signup.html", data)
 		} else {
-			err := m.app.DB.InsertUser(username, password)
+			hashedPassword, err := bcrypt.GenerateFromPassword([]byte(password), bcrypt.DefaultCost)
+			if err != nil {
+				http.Error(w, "Error hashing password", http.StatusInternalServerError)
+				return
+			}
+
+			err = m.app.DB.InsertUser(username, string(hashedPassword))
 			if err != nil {
 				http.Error(w, "Error creating user: "+err.Error(), http.StatusInternalServerError)
 				return
