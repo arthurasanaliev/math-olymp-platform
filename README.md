@@ -8,7 +8,7 @@ Welcome to the **Math Olympiad Platform**! This platform allows you to explore, 
 
 ## Preview
 
-![Image 1](/home/arthur/Pictures/Screenshots/Screenshot from 2025-01-17 03-55-07.png)
+![Image 1]("/home/arthur/Pictures/Screenshots/Screenshot from 2025-01-17 03-55-07.png")
 ![Image 2](y)
 ![Image 3](z)
 ![Image 4](k)
