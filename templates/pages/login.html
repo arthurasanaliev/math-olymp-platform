@@ -1,7 +1,7 @@
 {{define "title"}}Login - Math Olympiad Platform{{end}}
 {{define "content"}}
 <h2>Login</h2>
-<form method="POST" action="/login">
+<form method="POST" action="/login" class="form">
     <div class="form-group">
         <label for="username">Username</label>
         <input type="text" id="username" name="username" required>
@@ -10,9 +10,89 @@
         <label for="password">Password</label>
         <input type="password" id="password" name="password" required>
     </div>
-    <button type="submit" class="btn">Login</button>
     {{if .Error}}
     <div class="error">{{.Error}}</div>
     {{end}}
+    <button type="submit" class="btn">Login</button>
 </form>
+
+<style>
+    /* Match overall page design */
+    h2 {
+        text-align: center;
+        margin-bottom: 20px;
+        color: #333;
+    }
+
+    .form {
+        max-width: 600px;
+        margin: 20px auto;
+        padding: 20px;
+        background: #ffffff;
+        border: 1px solid #e0e0e0;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .form-group {
+        margin-bottom: 15px;
+    }
+
+    label {
+        display: block;
+        font-size: 1rem;
+        margin-bottom: 5px;
+        color: #555;
+        font-weight: bold;
+    }
+
+    input[type="text"],
+    input[type="password"] {
+        width: 100%;
+        padding: 10px;
+        font-size: 1rem;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        box-sizing: border-box;
+        background-color: #f9f9f9;
+    }
+
+    input[type="text"]:focus,
+    input[type="password"]:focus {
+        border-color: #ff8a5b;
+        outline: none;
+        background-color: #fff;
+        box-shadow: 0 0 5px rgba(255, 138, 91, 0.5);
+    }
+
+    .btn {
+        display: block;
+        width: 100%;
+        padding: 10px;
+        background-color: #333;
+        color: white;
+        font-size: 1rem;
+        border: none;
+        border-radius: 5px;
+        font-weight: bold;
+        cursor: pointer;
+        text-align: center;
+        transition: background-color 0.3s ease, transform 0.2s ease;
+    }
+
+    .btn:hover {
+        background-color: #555;
+        transform: translateY(-2px);
+    }
+
+    .error {
+        margin-top: 10px;
+        padding: 10px;
+        background-color: #f8d7da;
+        color: #721c24;
+        border: 1px solid #f5c6cb;
+        border-radius: 5px;
+        text-align: center;
+    }
+</style>
 {{end}}

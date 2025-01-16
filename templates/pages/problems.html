@@ -1,20 +1,133 @@
 {{define "title"}}Problems - Math Olympiad Platform{{end}}
 
 {{define "content"}}
-<h2>Problems</h2>
-<div class="problems">
+<div class="problems-header">
+    <h1>Problems</h1>
+    <p>A collection of curated math problems to challenge your skills.</p>
+</div>
+
+<div class="problems-list">
     {{range .}}
-    <div class="problem">
-        <h3><a href="/problems/{{.ID}}">{{.Title}}</a></h3>
-        <p><strong>Difficulty:</strong>
-            <span class="{{if eq .Difficulty "Easy"}}easy{{else if eq .Difficulty "Medium"}}medium{{else}}hard{{end}}">
+    <div class="problem-card">
+        <h2><a href="/problems/{{.ID}}">{{.Title}}</a></h2>
+        <p><strong>Difficulty:</strong> 
+            <span class="difficulty {{if eq .Difficulty "Easy"}}easy{{else if eq .Difficulty "Medium"}}medium{{else}}hard{{end}}">
                 {{.Difficulty}}
             </span>
         </p>
-        <p><strong>Tags:</strong> {{.Tags}}</p>
-        <p><strong>Statement:</strong> {{.Statement}}</p>
+        <p><strong>Tags:</strong> <span class="tags">{{.Tags}}</span></p>
+        <p class="statement"><strong>Statement:</strong> {{.Statement}}</p>
     </div>
-    <hr>
     {{end}}
 </div>
+
+<style>
+    /* General Styling */
+    body {
+        font-family: 'Arial', sans-serif;
+        color: #333;
+        background-color: #f9f9f9;
+        margin: 0;
+        padding: 0;
+    }
+
+    .problems-header {
+        text-align: center;
+        padding: 15px 10px; /* Reduced height */
+        background-color: #f5f5f5; /* Light grey */
+        border: 1px solid #e0e0e0;
+        border-radius: 8px;
+        margin-bottom: 20px; /* Adjusted spacing below */
+    }
+
+    .problems-header h1 {
+        font-size: 1.75rem; /* Slightly smaller */
+        margin-bottom: 5px; /* Reduced spacing below */
+        color: #333;
+    }
+
+    .problems-header p {
+        font-size: 0.95rem; /* Slightly smaller font size */
+        color: #666;
+        margin: 0; /* Removed extra margin */
+    }
+
+    /* Problem Cards */
+    .problems-list {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 20px;
+        padding: 20px;
+    }
+
+    .problem-card {
+        background-color: white;
+        border: 1px solid #ddd;
+        border-radius: 6px;
+        padding: 15px;
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .problem-card:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .problem-card h2 {
+        margin: 0 0 10px;
+        font-size: 1.25rem;
+        color: #000; /* Black */
+    }
+
+    .problem-card h2 a {
+        color: inherit; /* Keep black for the links */
+        text-decoration: none;
+    }
+
+    .problem-card h2 a:hover {
+        text-decoration: underline; /* Subtle hover effect */
+    }
+
+    .problem-card p {
+        margin: 8px 0;
+    }
+
+    .problem-card .statement {
+        font-style: italic;
+        color: #555;
+    }
+
+    /* Difficulty Tags */
+    .difficulty {
+        font-weight: bold;
+        padding: 2px 6px;
+        border-radius: 3px;
+        font-size: 0.9rem;
+    }
+
+    .difficulty.easy {
+        background-color: #d4edda; /* Light green for Easy */
+        color: #155724;
+    }
+
+    .difficulty.medium {
+        background-color: #ffeeba; /* Light yellow for Medium */
+        color: #856404;
+    }
+
+    .difficulty.hard {
+        background-color: #f8d7da; /* Light red for Hard */
+        color: #721c24;
+    }
+
+    /* Tags Styling */
+    .tags {
+        background-color: #f0f0f0;
+        color: #555;
+        font-size: 0.9rem;
+        padding: 2px 6px;
+        border-radius: 4px;
+    }
+</style>
 {{end}}
+

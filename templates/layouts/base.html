@@ -5,64 +5,111 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>{{template "title" .}}</title>
         <style>
+        /* General Styling */
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Arial', sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f4f4f9;
+            background-color: #f7f9fc;
             color: #333;
+            line-height: 1.6;
         }
+
+        /* Header */
         header {
-            padding: 20px;
-            background-color: blue;
-            color: white;
+            padding: 30px 20px;
+            background: linear-gradient(90deg, #ffaf87, #ffd57e);
+            color: #4a4a4a;
             text-align: center;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
         }
+        header h1 {
+            margin: 0;
+            font-size: 2.5rem;
+            font-weight: bold;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+        }
+        header p {
+            margin: 10px 0 0;
+            font-size: 1.1rem;
+            color: #5a5a5a;
+        }
+
+        /* Navigation */
         nav {
+            display: flex;
+            justify-content: center;
             background-color: #333;
             padding: 10px 0;
-            text-align: center;
         }
         nav a {
             color: white;
             text-decoration: none;
             margin: 0 15px;
             font-size: 1rem;
+            transition: color 0.3s ease, border-bottom 0.3s ease;
         }
         nav a:hover {
-            text-decoration: underline;
+            color: #ff8a5b;
+            border-bottom: 2px solid #ff8a5b;
         }
+
+        /* Main Content */
+        .container {
+            padding: 20px;
+            max-width: 900px;
+            margin: 30px auto;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Footer */
         footer {
-            padding: 10px;
+            padding: 15px;
             text-align: center;
             background-color: #f1f1f1;
             color: #555;
+            font-size: 0.9rem;
         }
-        .container {
-            padding: 20px;
-            max-width: 800px;
-            margin: 20px auto;
-            background: white;
-            border-radius: 5px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        footer a {
+            color: #ff8a5b;
+            text-decoration: none;
         }
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Difficulty Labels */
         .easy {
-            color: green;
+            color: #28a745;
             font-weight: bold;
         }
         .medium {
-            color: #D4A200;
+            color: #ffc107;
             font-weight: bold;
         }
         .hard {
-            color: red;
+            color: #dc3545;
             font-weight: bold;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            nav {
+                flex-wrap: wrap;
+            }
+            nav a {
+                margin: 5px 10px;
+                font-size: 0.9rem;
+            }
         }
         </style>
     </head>
     <body>
         <header>
             <h1>Math Olympiad Platform</h1>
+            <p>Empowering learning through challenging problems</p>
         </header>
         <nav>
             <a href="/">Home</a>
@@ -77,7 +124,7 @@
             </div>
         </main>
         <footer>
-            &copy; 2025 Math Olymp by Arthur Asanaliev. All rights reserved.
+            &copy; 2025 Math Olymp by <a href="https://github.com/arthurasanaliev" target="_blank">Arthur Asanaliev</a>.
         </footer>
     </body>
 </html>
