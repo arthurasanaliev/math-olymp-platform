@@ -5,8 +5,10 @@ Welcome to the **Math Olympiad Platform**! This platform allows you to explore, 
 ## Preview
 
 ![Image 1](./preview/home.png)
+
 ![Image 2](./preview/login.png)
+
 ![Image 3](./preview/problems.png)
+
 ![Image 4](./preview/problem.png)
 
-This platform includes a collection of math problems with varying difficulty levels, each accompanied by detailed explanations and tutorials. You can track your progress, explore problem categories, and learn valuable mathematical techniques.
