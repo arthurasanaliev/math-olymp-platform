@@ -42,6 +42,7 @@ func (m *Repository) Problem(w http.ResponseWriter, r *http.Request) {
 			"Message": message,
 		}
 		render.RenderTemplate(w, "problem.html", data)
+
 		return
 	}
 
