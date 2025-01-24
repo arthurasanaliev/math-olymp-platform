@@ -7,6 +7,8 @@ import (
 	"net/http"
 )
 
+// TODO: add nosurf protection
+
 // routes defines routing
 func routes() http.Handler {
 	mux := chi.NewRouter()
