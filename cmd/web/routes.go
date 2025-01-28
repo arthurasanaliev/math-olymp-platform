@@ -7,8 +7,6 @@ import (
 	"net/http"
 )
 
-// TODO: add nosurf protection
-
 // routes defines routing
 func routes() http.Handler {
 	mux := chi.NewRouter()
@@ -17,10 +15,11 @@ func routes() http.Handler {
 	// mux.Use(noSurf)
 
 	mux.Get("/", handlers.Repo.Home)
-	mux.Get("/login", handlers.Repo.Login)
-	mux.Get("/signup", handlers.Repo.Signup)
+	mux.Get("/blogs", handlers.Repo.Blogs)
 	mux.Get("/problems", handlers.Repo.Problems)
 	mux.Get("/problems/{id}", handlers.Repo.Problem)
+	mux.Get("/login", handlers.Repo.Login)
+	mux.Get("/signup", handlers.Repo.Signup)
 	mux.Get("/about", handlers.Repo.About)
 
 	mux.Post("/login", handlers.Repo.Login)
